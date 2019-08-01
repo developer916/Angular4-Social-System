@@ -1,0 +1,24 @@
+.auto-complete-input-container, .auto-complete-input-container-required{
+  margin-top: 16px;
+  width: 100%;
+}
+
+
+.auto-complete-input {
+  /*border : 1px solid #ccc;*/
+  -webkit-appearance: menulist;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  background-color: white;
+  cursor: default;
+  /*border-style: solid;*/
+  border-image: initial;
+  padding : 6px 12px;
+}
+
+/deep/ .mat-input-placeholder{
+         padding-left:10px;
+       }
+

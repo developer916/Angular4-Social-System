@@ -1,0 +1,107 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      Welcome to Angular material custom auto-complete
+    </h1>
+      <div class="row" style="margin-top:40px">
+          <div class="col-md-4">
+            <h4>Angular material standard</h4>
+            <md-input-container class="auto-complete-input-container">
+              <input mdInput placeholder="" [mdAutocomplete]="reactiveAuto" [formControl]="stateCtrl" placeholder ="State">
+            </md-input-container>
+            <md-autocomplete #reactiveAuto="mdAutocomplete">
+              <md-option *ngFor="let state of filteredStates | async" [value]="state">
+              {{ state }}
+              </md-option>
+            </md-autocomplete>
+          </div>
+        <div class="col-md-4">
+          <h4> Common Auto Complete</h4>
+
+          <md-input-container class="auto-complete-input-container">
+            <input mdInput placeholder="Common Auto Complete" [mdAutocomplete]="commonAuto" [formControl]="listCommonCtrl" class="auto-complete-input"  [(ngModel)] = "selectedList"  name="selectedList">
+          </md-input-container>
+          <md-autocomplete #commonAuto="mdAutocomplete" [displayWith]="displayCommonFn">
+            <md-option *ngFor="let list of listedCommonData | async" [value]="list" >
+              {{ list.name }}
+            </md-option>
+          </md-autocomplete>
+        </div>
+
+
+        <div class="col-md-4">
+          <h4>Required Auto Complete</h4>
+          <md-input-container class=" auto-complete-input-container-required">
+            <input mdInput placeholder="Required Auto Complete" [mdAutocomplete]="requiredAuto" [formControl]="listCtrl" class="auto-complete-input" [(ngModel)] = "selectedRequiredList"  required  name="requiredSelect">
+          </md-input-container>
+          <md-autocomplete #requiredAuto="mdAutocomplete" [displayWith]="displayFn">
+            <md-option *ngFor="let list of listedData | async" [value]="list">
+              {{ list.name }}
+            </md-option>
+          </md-autocomplete>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Disabled Auto Complete</h4>
+          <md-input-container class=" auto-complete-input-container">
+            <input mdInput placeholder="Disabled Auto Complete" [mdAutocomplete]="disabledAuto" [formControl]="listDisabledCtrl" [(ngModel)] = "selectedDisabledList"  name="disabledSelect" class="auto-complete-input"   [ngClass] ="{disabled:autoCompleteDisabled}">
+          </md-input-container>
+          <md-autocomplete #disabledAuto="mdAutocomplete" [displayWith]="displayDisabledFn">
+            <md-option *ngFor="let list of listedDisabledData | async" [value]="list">
+              {{ list.name }}
+            </md-option>
+          </md-autocomplete>
+          <button md-button (click)="changeDisabled()">
+            <span>TOGGLE DISABLED</span>
+          </button>
+        </div>
+  </div>
+
+
+    <div  class="row" style="margin-top: 40px; margin-bottom: 40px;">
+        <div class="col-md-12">
+            <h2>Custom Input Box for Task 47</h2>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 40px;">
+      <div class="col-md-4">
+        <h4>Common Input Box</h4>
+        <input type="text" [(ngModel)] ="commonText" class="form-control" placeholder="Common Input Box" />
+      </div>
+      <div class="col-md-4">
+        <h4>Read Only</h4>
+        <input type="text"  [(ngModel)] ="readOnlyText" disabled class="form-control custom-input-read-only"  />
+      </div>
+      <div class="col-md-4">
+        <h4>Required Input Box </h4>
+        <input type="text"  [(ngModel)] ="requiredText" class="form-control custom-input-required"   placeholder="Required Input Box" required/>
+      </div>
+      <div class="col-md-4" style="margin-top: 30px;">
+        <h4>Required Input Box </h4>
+        <input type="text"  [(ngModel)] ="disabledText" class="form-control custom-input-disabled"   placeholder="Disabled Input Box" disabled/>
+      </div>
+    </div>
+
+    <div  class="row" style="margin-top: 40px; margin-bottom: 40px;">
+      <div class="col-md-12">
+        <h2>Custom Validation Input Box for Task 48</h2>
+      </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 40px">
+      <form [formGroup]="validationForm">
+        <div class="col-md-4">
+          <h4>Zip Code Validation</h4>
+          <div class="from-group">
+            <input type="text" name="zipcode" class="form-control custom-input-required" required formControlName="zipcode" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h4>US phone number validation</h4>
+          <input  name="usPhoneNumber" type="text" class="form-control custom-input-required" required formControlName="usPhoneNumber" placeholder="+1 (___) ___-____" [textMask]="{mask: usPhoneMask}" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

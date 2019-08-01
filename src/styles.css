@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.auto-complete-input.ng-invalid{
+  background-color: red!important;
+  color:white!important;
+}
+.auto-complete-input.disabled{
+  background-color:gray!important;
+}
+.auto-complete-input-container-required .mat-input-placeholder.mat-empty {
+         color: white!important;
+}
+ .auto-complete-input-container-required .mat-input-placeholder.mat-empty .mat-placeholder-required{
+         color: white!important;
+}
+ .custom-input-read-only {
+   background-color: blue!important;
+   color : white!important;
+ }
+ .custom-input-disabled{
+   background-color: gray!important;
+ }
+ .custom-input-required.ng-invalid{
+   background-color:  red!important;
+   color : white!important;
+ }
+ .custom-input-required::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   color: white!important;
+ }
+.custom-input-required::-moz-placeholder { /* Firefox 19+ */
+  color: white!important;
+}
+.custom-input-required:-ms-input-placeholder { /* IE 10+ */
+  color: white!important;
+}
+.custom-input-required:-moz-placeholder { /* Firefox 18- */
+  color: white!important;
+}
